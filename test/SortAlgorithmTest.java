@@ -33,4 +33,15 @@ class SortAlgorithmTest {
         Integer[] actual = sortAlgorithm.bubbleSort();
         assertArrayEquals(expected,actual);
     }
+
+
+    @DisplayName("Sắp xếp nổi bọt với mảng double có 1 phần tử trùng nhau")
+    @Test
+    void testBubbleSortDoubleArray() {
+        Double[] numbers = {1.3,4.0,5.9,2.5,2.5,2.8,9.567};
+        SortAlgorithm<Double> sortAlgorithm = new SortAlgorithm<>(numbers);
+        Double[] expected = {1.3,2.5,2.5,2.8,4.0,5.9,9.567};
+        Double[] actual = sortAlgorithm.selectionSort();
+        assertArrayEquals(expected,actual);
+    }
 }
