@@ -6,6 +6,7 @@ public class SortAlgorithm<E extends Number> {
     }
 
     public E[] selectionSort() {
+        boolean needNextSort;
         for (int mainPointer = 0; mainPointer < array.length - 1; mainPointer++) {
             E min = array[mainPointer];
             int indexOfMin = mainPointer;
@@ -27,19 +28,19 @@ public class SortAlgorithm<E extends Number> {
 
     public E[] bubbleSort() {
         //Determine if the array is sorted and don't need to be sort again
-        boolean needNextPass = true;
-        for (int mainPointer = 1; mainPointer < array.length; mainPointer++) {
-            needNextPass = false;
-            for (int inner = 0; inner < array.length - mainPointer; inner++) {
+        boolean needNextSort;
+        for (int sortTimes = 1; sortTimes < array.length; sortTimes++) {
+            needNextSort = false;
+            for (int inner = 0; inner < array.length - sortTimes; inner++) {
                 if (array[inner].doubleValue() > array[inner + 1].doubleValue()) {
                     //Swap two value
                     E temp = array[inner];
                     array[inner] = array[inner + 1];
                     array[inner + 1] = temp;
-                    needNextPass = true;
+                    needNextSort = true;
                 }
             }
-            if (!needNextPass) {
+            if (!needNextSort) {
                 break;
             }
         }
@@ -48,9 +49,9 @@ public class SortAlgorithm<E extends Number> {
 
     public void displayStepBubbleSort() {
         //Determine if the array is sorted and don't need to be sort again
-        boolean needNextPass = true;
+        boolean needNextSort;
         for (int sortTimes = 1; sortTimes < array.length; sortTimes++) {
-            needNextPass = false;
+            needNextSort = false;
             for (int inner = 0; inner < array.length - sortTimes; inner++) {
                 if (array[inner].doubleValue() > array[inner + 1].doubleValue()) {
                     //Swap two value
@@ -61,10 +62,10 @@ public class SortAlgorithm<E extends Number> {
                     E temp = array[inner];
                     array[inner] = array[inner + 1];
                     array[inner + 1] = temp;
-                    needNextPass = true;
+                    needNextSort = true;
                 }
             }
-            if (!needNextPass) {
+            if (!needNextSort) {
                 System.out.println("Array may be sorted and doesn't need to continue ");
                 break;
             }
