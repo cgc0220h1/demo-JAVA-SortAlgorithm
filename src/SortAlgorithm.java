@@ -185,8 +185,8 @@ public class SortAlgorithm<E extends Comparable<E>> {
         }
     }
 
-    public void display(E[] list) {
-        for (E number : list) {
+    public void display(E[] array) {
+        for (E number : array) {
             System.out.print(number + "\t");
         }
         System.out.println();

@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class SortMain {
@@ -11,6 +12,7 @@ public class SortMain {
         System.out.println("Enter integer list size: ");
         int size = scanner.nextInt();
         Integer[] list = new Integer[size];
+        Integer[] copyList;
         System.out.println("Enter " + list.length + " values: ");
         for (int index = 0; index < list.length; index++) {
             System.out.print("Enter value at index " + index + ": ");
@@ -37,13 +39,16 @@ public class SortMain {
                 System.out.println("-----------------------");
                 switch (choice) {
                     case 1:
-                        sortAlgorithm.displayStepSelectionSort(list);
+                        copyList = Arrays.copyOf(list,list.length);
+                        sortAlgorithm.displayStepSelectionSort(copyList);
                         break;
                     case 2:
-                        sortAlgorithm.displayStepBubbleSort(list);
+                        copyList = Arrays.copyOf(list,list.length);
+                        sortAlgorithm.displayStepBubbleSort(copyList);
                         break;
                     case 3:
-                        sortAlgorithm.displayStepInsertionSort(list);
+                        copyList = Arrays.copyOf(list,list.length);
+                        sortAlgorithm.displayStepInsertionSort(copyList);
                         break;
                     case 0:
                         isExit = true;
